@@ -20,7 +20,7 @@ namespace hangmanZ
             else if (wrong == 1)
             {
                 Console.WriteLine("\n+---+");
-                Console.WriteLine("O   |");
+                Console.WriteLine("O   d|");
                 Console.WriteLine("    |");
                 Console.WriteLine("    |");
                 Console.WriteLine("   ===");
