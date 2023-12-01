@@ -20,7 +20,7 @@ namespace hangmanZ
             else if (wrong == 1)
             {
                 Console.WriteLine("\n+---+");
-                Console.WriteLine("    |");
+                Console.WriteLine("O   |");
                 Console.WriteLine("    |");
                 Console.WriteLine("    |");
                 Console.WriteLine("   ===");
@@ -28,24 +28,24 @@ namespace hangmanZ
             else if (wrong == 2)
             {
                 Console.WriteLine("\n+---+");
-                Console.WriteLine("   |");
-                Console.WriteLine("    |");
+                Console.WriteLine("O   |");
+                Console.WriteLine("|   |");
                 Console.WriteLine("    |");
                 Console.WriteLine("   ===");
             }
             else if (wrong == 3)
             {
                 Console.WriteLine("\n+---+");
-                Console.WriteLine("   |");
-                Console.WriteLine("    |");
+                Console.WriteLine(" O  |");
+                Console.WriteLine("/|  |");
                 Console.WriteLine("    |");
                 Console.WriteLine("   ===");
             }
             else if (wrong == 4)
             {
                 Console.WriteLine("\n+---+");
-                Console.WriteLine("    |");
-                Console.WriteLine("    |");
+                Console.WriteLine(" O   |");
+                Console.WriteLine("/|\\  |");
                 Console.WriteLine("    |");
                 Console.WriteLine("   ===");
             }
@@ -54,7 +54,7 @@ namespace hangmanZ
                 Console.WriteLine("\n+---+");
                 Console.WriteLine(" O  |");
                 Console.WriteLine("/|\\ |");
-                Console.WriteLine("    |");
+                Console.WriteLine("/   |");
                 Console.WriteLine("   ===");
             }
             else if (wrong == 6)
