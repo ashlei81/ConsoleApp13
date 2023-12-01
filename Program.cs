@@ -67,12 +67,104 @@ namespace hangmanZ
             }
         }
 
+        private static int printWord(List<char> guessedLetters, String randomWord)
+        {
+            int counter = 0;
+            int rightLetters = 0;
+            Console.Write("\r\n");
+            foreach (char c in randomWord)
+            {
+                if (guessedLetters.Contains(c))
+                {
+                    Console.Write(c + " ");
+                    rightLetters++;
+                }
+                else
+                {
+                    Console.Write(" ");
+                }
+                counter++;
+            }
+            return rightLetters;
+        }
+
+        private static void printLines(String randomWord)
+        {
+            Console.Write("\r");
+            foreach (char c in randomWord)
+            {
+                Console.OutputEncoding = System.Text.Encoding.Unicode;
+                Console.Write("\u0305 ");
+            }
+        }
+
         static void Main(string[] args)
         {
+            Console.WriteLine("Welcome to Hangman :)");
+            Console.WriteLine("-----------------------------------------");
 
+            Random random = new Random();
+            List<String> wordDictionary = new List<String> { "unicorn", "princess", "diamond", "pretty", "rubies", "rose", "sunflower", "hello" };
+            int index = random.Next(wordDictionary.Count);
+            String randomWord = wordDictionary[index];
 
+            foreach (char x in randomWord)
+            {
+                Console.Write("_ ");
+            }
 
+            int lengthOfWordToGuess = randomWord.Length;
+            int amountOfTimesWrong = 0;
+            List<char> currentLettersGuessed = new List<char>();
+            int currentLettersRight = 0;
+
+            while (amountOfTimesWrong != 6 && currentLettersRight != lengthOfWordToGuess)
+            {
+                Console.Write("\nLetters guessed so far: ");
+                foreach (char letter in currentLettersGuessed)
+                {
+                    Console.Write(letter + " ");
+                }
+                //ask user for input
+                Console.Write("\nGuess a Letter: ");
+                char letterGuessed = Console.ReadLine()[0];
+                //check if letter has been guessed already
+                if (currentLettersGuessed.Contains(letterGuessed))
+                {
+                    Console.Write("r\nYou have already guessed this letter. ");
+                    PrintHangman(amountOfTimesWrong);
+                    currentLettersRight = printWord(currentLettersGuessed, randomWord);
+                    printLines(randomWord);
+                }
+                else
+                {
+                    // check if letter is in the word
+                    bool right = false;
+                    for (int i = 0; i < randomWord.Length; i++) { if (letterGuessed == randomWord[i]) { right = true; }
+
+                    if (right)
+                    {
+                         printHangman(amountOfTimesWrong);
+                         currentLettersGuessed.Add(lettersGuessed);
+                         currentLettersRight = printWord(currentLettersGuessed, randomWord);
+                         Console.Write("r\n");
+                         printLines(randomWord);
+                    }
+                    else
+                    }
+                          amountOfTimesWrong++;
+                          currentLettersGuessed.Add(letterGuessed);
+                          printHangman(amountOfTimesWrong);
+                          currentLettersRight = printWord(currentLettersGuessed, randomWord);
+                          Console.Write("r\n");
+                          printLines(randomWord); 
+                     }
+                }
+            
+            }
+            Console.WriteLine("r\nGame is over!! Thank you ;)");
         }
     }
-}
+ }
+ 
 
